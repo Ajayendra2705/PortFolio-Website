@@ -1116,6 +1116,11 @@ footer {
     border: 2px solid black;
 }
 
+.box1.visible, .box2.visible, .box3.visible {
+    opacity: 1; /* End with opacity 1 */
+    transform: scale(1); /* End with normal scale */
+}
+
 .upperbox1:hover .overlay, .upperbox2:hover .overlay, .upperbox:hover .overlay {
     opacity: 1;
 }
