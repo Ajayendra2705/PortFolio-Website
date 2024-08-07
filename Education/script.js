@@ -24,3 +24,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (class12Area) observer.observe(class12Area);
     if (class10Area) observer.observe(class10Area);
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const boxes = document.querySelectorAll('.box1, .box2, .box3');
+    
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    boxes.forEach(box => {
+        observer.observe(box);
+    });
+});
