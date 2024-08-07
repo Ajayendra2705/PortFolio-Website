@@ -1048,6 +1048,10 @@ footer {
     padding: 10px; /* Added padding for better content spacing */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     margin: 10px; /* Margin around each box for spacing */
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateY(20px); /* Start with a slight vertical translation */
+    transition: opacity 1s ease, transform 1s ease;
+}
 }
 
 .upperbox1, .upperbox2, .upperbox {
