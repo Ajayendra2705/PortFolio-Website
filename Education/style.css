@@ -1,0 +1,1153 @@
+/* Basic reset */
+* {
+    font-family: 'Parisienne', cursive;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+.navbar {
+    height: 80px; /* Adjusted height */
+    display: flex;
+    align-items: center;
+    background-color: rgb(220, 241, 250);
+    padding: 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    z-index: 1000; /* Ensure navbar is on top */
+}
+
+.navbar:hover {
+    background-color: rgb(200, 230, 250);
+}
+
+.navbar-brand img {
+    height: 60px;
+    margin-right: 20px;
+    margin-left: 100px; /* Add a default left margin */
+    transition: transform 0.3s ease, margin-left 0.3s ease; /* Add transition for margin-left */
+}
+
+@media (max-width: 1200px) {
+    .navbar-brand img {
+        margin-left: 15px; /* Adjust left margin for smaller screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-brand img {
+        margin-left: 10px; /* Adjust left margin for even smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand img {
+        margin-left: 5px; /* Adjust left margin for smallest screens */
+    }
+}
+
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"%3E%3Cpath stroke="currentColor" stroke-width="2" d="M5 7h20M5 15h20M5 23h20" /%3E%3C/svg%3E');
+}
+
+/* Style for the collapsible navbar menu */
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+}
+
+/* Ensure that the menu items are hidden by default */
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Space between items */
+}
+
+.navbar-nav .nav-item {
+    margin: 0;
+}
+
+.navbar-nav .nav-link {
+    display: block;
+    text-decoration: none;
+}
+
+.extra_box {
+    height: 60px;
+    width: 120px; /* Adjusted width */
+    border-radius: 10%; /* Rounded corners on the left */
+    background-color: rgb(220, 241, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.2rem;
+    color: black; /* Ensure text color is visible */
+    z-index: 1001; /* Ensure extra_box is on top */
+}
+
+.extra_box:hover {
+    border: 2px solid black;
+    background-color: aqua;
+    opacity: 100%;
+    border-radius: 10%;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .extra_box {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .extra_box {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .extra_box {
+        font-size: 0.9rem;
+    }
+}
+
+footer {
+    background-color: rgb(220, 241, 250);
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Container styling */
+.image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem; /* Adjust padding as needed */
+    width: 100%; /* Ensure the container spans the full width */
+}
+
+/* Image container styling */
+.left_side {
+    flex: 0 0 60%; /* Set image container to 60% width by default */
+    max-width: 60%; /* Ensure it does not exceed 60% */
+    position: relative; /* For animation positioning */
+    animation: slideInLeft 1s ease-out forwards; /* Slide-in animation */
+
+}
+
+/* Image styling */
+#grad_image {
+    width: 100%; /* Make the image fill its container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure image does not exceed container size */
+
+}
+
+/* Text section styling */
+.right_side {
+    flex: 0 0 40%; /* Text container takes up remaining space */
+    max-width: 40%; /* Ensure it does not exceed 40% */
+    text-align: center; /* Center align text */
+    animation: slideInRight 1s ease-out forwards; /* Slide-in animation */
+
+}
+
+/* On larger screens, adjust layout */
+@media (min-width: 1200px) {
+    .image {
+        flex-direction: row; /* Stack items horizontally on screens larger than 1200px */
+        padding: 1rem; /* Reduce padding on larger screens */
+        
+    }
+
+    .left_side {
+        flex: 1 0 auto; /* Allow image container to grow/shrink as needed */
+        max-width: 50%; /* Reduce image container width to 50% on larger screens */
+        margin-bottom: 0; /* Remove space between image and text */
+    }
+
+    .right_side {
+        flex: 1 0 auto; /* Allow text container to grow/shrink as needed */
+        max-width: 50%; /* Reduce text container width to 50% on larger screens */
+        margin-top: 0; /* Reset margin-top */
+    }
+}
+
+/* Additional styling for smaller screens */
+@media (max-width: 767px) {
+    .left_side, .right_side {
+        flex: 1 0 100%; /* On very small screens, take up full width */
+        max-width: 100%; /* Ensure full width */
+    }
+
+    .right_side {
+        margin-top: 1rem; /* Add some space above the text */
+    }
+}
+
+/* Slide-in animations */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.degrees {
+    height: 140px;
+    background-color: rgb(220, 241, 250);
+    font-size: 50px;
+    text-align: center;
+}
+
+#education_written {
+    font-size: 50px;
+}
+
+.iitkgp {
+    background-color: rgb(220, 241, 250);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+.iitkgp_area {
+    width: 100%; /* Use full width to make it responsive */
+    max-width: 1100px;
+    border-radius: 30px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row; /* Default layout */
+    padding: 5px;
+    box-sizing: border-box;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+#iit_image_image {
+    opacity: 1;
+    height: 200px;
+    margin: 20px;
+    flex: 0 1 auto; /* Ensure image scales properly */
+    max-width: 200px; /* Ensure it doesn't get too wide */
+}
+
+.iit_written_part {
+    opacity: 1;
+    height: auto;
+    background-color: rgb(13, 197, 244);
+    border-radius: 30px;
+    flex: 1 1 auto; /* Ensure text box scales properly */
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: calc(100% - 240px); /* Adjust based on image size */
+    overflow: hidden; /* Prevent overflow */
+}
+
+#iit_written_written {
+    font-size: 25px;
+    font-family: 'Parisienne', cursive;
+    margin: 0;
+    overflow-wrap: break-word; /* Handle long words */
+}
+
+#btech {
+    font-size: 25px;
+    margin: 0;
+}
+
+.iit_whateducation {
+    margin: 30px 0;
+    height: auto;
+    width: 100%;
+    max-width: 851px;
+    background-color: green;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.trial {
+    margin-top: 23px;
+    height: auto;
+    width: 100%;
+    max-width: 811px;
+    background-color: rgb(140, 210, 240);
+    opacity: 1;
+    border-radius: 30px;
+    padding: 20px;
+    font-size: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.text_extra {
+    font-size: 25px;
+}
+
+#iit_image_image.animate {
+    opacity: 1;
+    animation: slideInFromLeft 1s forwards;
+}
+
+.iit_written_part.animate {
+    opacity: 1;
+    animation: slideInFromRight 1s forwards;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1200px) {
+    .degrees {
+        font-size: 40px;
+    }
+
+    #education_written {
+        font-size: 40px;
+    }
+
+    .iitkgp_area {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .iit_written_part {
+        width: 100%;
+        max-width: 100%; /* Ensure it stays within the parent box */
+        margin-top: 20px; /* Add margin to separate from the image */
+    }
+
+    #iit_image_image {
+        height: 150px;
+        max-width: 150px; /* Adjust for smaller screens */
+    }
+
+    #iit_written_written, #btech {
+        font-size: 20px;
+    }
+
+    .trial {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .degrees {
+        font-size: 35px;
+    }
+
+    #education_written {
+        font-size: 35px;
+    }
+
+    .iitkgp_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .iit_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #iit_image_image {
+        height: 150px;
+        max-width: 150px;
+    }
+
+    #iit_written_written, #btech {
+        font-size: 18px;
+    }
+
+    .trial {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .degrees {
+        font-size: 30px;
+    }
+
+    #education_written {
+        font-size: 30px;
+    }
+
+    .iitkgp_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .iit_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #iit_image_image {
+        height: 120px;
+        max-width: 120px;
+    }
+
+    #iit_written_written, #btech {
+        font-size: 16px;
+    }
+
+    .trial {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .degrees {
+        font-size: 25px;
+    }
+
+    #education_written {
+        font-size: 25px;
+    }
+
+    .iitkgp_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .iit_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #iit_image_image {
+        height: 100px;
+        max-width: 100px;
+    }
+
+    #iit_written_written, #btech {
+        font-size: 14px;
+    }
+
+    .trial {
+        font-size: 12px;
+    }
+}
+
+.class_12 {
+    background-color: rgb(220, 241, 250);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+.class_12_area {
+    width: 100%; /* Use full width to make it responsive */
+    max-width: 1100px;
+    border-radius: 30px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row; /* Default layout */
+    padding: 5px;
+    box-sizing: border-box;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+#class12_image_image {
+    opacity: 1;
+    height: 200px;
+    margin: 20px;
+    flex: 0 1 auto; /* Ensure image scales properly */
+    max-width: 200px; /* Ensure it doesn't get too wide */
+}
+
+.class_12_written_part {
+    opacity: 1;
+    height: auto;
+    background-color: rgb(13, 197, 244);
+    border-radius: 30px;
+    flex: 1 1 auto; /* Ensure text box scales properly */
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: calc(100% - 240px); /* Adjust based on image size */
+    overflow: hidden; /* Prevent overflow */
+}
+
+#class12_written_written {
+    font-size: 25px;
+    font-family: 'Parisienne', cursive;
+    margin: 0;
+    overflow-wrap: break-word; /* Handle long words */
+}
+
+#school {
+    font-size: 25px;
+    margin: 0;
+}
+
+.class_12_whateducation {
+    margin: 30px 0;
+    height: auto;
+    width: 100%;
+    max-width: 851px;
+    background-color: green;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.trial {
+    margin-top: 23px;
+    height: auto;
+    width: 100%;
+    max-width: 811px;
+    background-color: rgb(140, 210, 240);
+    opacity: 1;
+    border-radius: 30px;
+    padding: 20px;
+    font-size: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.text_extra {
+    font-size: 25px;
+}
+
+#class12_image_image.animate {
+    opacity: 1;
+    animation: slideInFromLeft 1s forwards;
+}
+
+.class_12_written_part.animate {
+    opacity: 1;
+    animation: slideInFromRight 1s forwards;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1200px) {
+    .degrees {
+        font-size: 40px;
+    }
+
+    #education_written {
+        font-size: 40px;
+    }
+
+    .class_12_area {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .class_12_written_part {
+        width: 100%;
+        max-width: 100%; /* Ensure it stays within the parent box */
+        margin-top: 20px; /* Add margin to separate from the image */
+    }
+
+    #class12_image_image {
+        height: 150px;
+        max-width: 150px; /* Adjust for smaller screens */
+    }
+
+    #class12_written_written, #school {
+        font-size: 20px;
+    }
+
+    .trial {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .degrees {
+        font-size: 35px;
+    }
+
+    #education_written {
+        font-size: 35px;
+    }
+
+    .class_12_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class_12_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #class12_image_image {
+        height: 150px;
+        max-width: 150px;
+    }
+
+    #class12_written_written, #school {
+        font-size: 18px;
+    }
+
+    .trial {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .degrees {
+        font-size: 30px;
+    }
+
+    #education_written {
+        font-size: 30px;
+    }
+
+    .class_12_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class_12_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #class12_image_image {
+        height: 120px;
+        max-width: 120px;
+    }
+
+    #class12_written_written, #school {
+        font-size: 16px;
+    }
+
+    .trial {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .degrees {
+        font-size: 25px;
+    }
+
+    #education_written {
+        font-size: 25px;
+    }
+
+    .class_12_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class_12_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #class12_image_image {
+        height: 100px;
+        max-width: 100px;
+    }
+
+    #class12_written_written, #school {
+        font-size: 14px;
+    }
+
+    .trial {
+        font-size: 12px;
+    }
+}
+
+.area_between {
+    height: 50px;
+    width: 100%;
+    background-color: rgb(220, 241, 250);
+}
+
+.class_10 {
+    background-color: rgb(220, 241, 250);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+.class_10_area {
+    width: 100%; /* Use full width to make it responsive */
+    max-width: 1100px;
+    border-radius: 30px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row; /* Default layout */
+    padding: 5px;
+    box-sizing: border-box;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+#class10_image_image {
+    opacity: 1;
+    height: 200px;
+    margin: 20px;
+    flex: 0 1 auto; /* Ensure image scales properly */
+    max-width: 200px; /* Ensure it doesn't get too wide */
+}
+
+.class_10_written_part {
+    opacity: 1;
+    height: auto;
+    background-color: rgb(13, 197, 244);
+    border-radius: 30px;
+    flex: 1 1 auto; /* Ensure text box scales properly */
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: calc(100% - 240px); /* Adjust based on image size */
+    overflow: hidden; /* Prevent overflow */
+}
+
+#class10_written_written {
+    font-size: 25px;
+    font-family: 'Parisienne', cursive;
+    margin: 0;
+    overflow-wrap: break-word; /* Handle long words */
+}
+
+#school {
+    font-size: 25px;
+    margin: 0;
+}
+
+.class_10_whateducation {
+    margin: 30px 0;
+    height: auto;
+    width: 100%;
+    max-width: 851px;
+    background-color: green;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.trial {
+    margin-top: 23px;
+    height: auto;
+    width: 100%;
+    max-width: 811px;
+    background-color: rgb(140, 210, 240);
+    opacity: 1;
+    border-radius: 30px;
+    padding: 20px;
+    font-size: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.text_extra {
+    font-size: 25px;
+}
+
+#class10_image_image.animate {
+    opacity: 1;
+    animation: slideInFromLeft 1s forwards;
+}
+
+.class_10_written_part.animate {
+    opacity: 1;
+    animation: slideInFromRight 1s forwards;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1200px) {
+    .degrees {
+        font-size: 40px;
+    }
+
+    #education_written {
+        font-size: 40px;
+    }
+
+    .class_10_area {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .class_10_written_part {
+        width: 100%;
+        max-width: 100%; /* Ensure it stays within the parent box */
+        margin-top: 20px; /* Add margin to separate from the image */
+    }
+
+    #class10_image_image {
+        height: 150px;
+        max-width: 150px; /* Adjust for smaller screens */
+    }
+
+    #class10_written_written, #school {
+        font-size: 20px;
+    }
+
+    .trial {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .degrees {
+        font-size: 35px;
+    }
+
+    #education_written {
+        font-size: 35px;
+    }
+
+    .class_10_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class_10_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #class10_image_image {
+        height: 150px;
+        max-width: 150px;
+    }
+
+    #class10_written_written, #school {
+        font-size: 18px;
+    }
+
+    .trial {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .degrees {
+        font-size: 30px;
+    }
+
+    #education_written {
+        font-size: 30px;
+    }
+
+    .class_10_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class_10_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #class10_image_image {
+        height: 120px;
+        max-width: 120px;
+    }
+
+    #class10_written_written, #school {
+        font-size: 16px;
+    }
+
+    .trial {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .degrees {
+        font-size: 25px;
+    }
+
+    #education_written {
+        font-size: 25px;
+    }
+
+    .class_10_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class_10_written_part {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    #class10_image_image {
+        height: 100px;
+        max-width: 100px;
+    }
+
+    #class10_written_written, #school {
+        font-size: 14px;
+    }
+
+    .trial {
+        font-size: 12px;
+    }
+}
+
+.area_first {
+    height: 20px;
+    width: 100%;
+    background-color: rgb(220, 241, 250);
+}
+
+/* Keyframes for slide-in animations */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Initial state for animations */
+.iitkgp_area,
+.class_12_area,
+.class_10_area {
+    opacity: 0; /* Initially invisible */
+    transform: translateX(0); /* Ensure elements are in their original position */
+}
+
+/* Animation classes with delay */
+.iitkgp_area.animate {
+    animation: slideInFromLeft 1s 0.5s forwards; /* 0.5s delay */
+}
+
+.class_12_area.animate {
+    animation: slideInFromRight 1s 0.5s forwards; /* 0.5s delay */
+}
+
+.class_10_area.animate {
+    animation: slideInFromLeft 1s 0.5s forwards; /* 0.5s delay */
+}
+
+/* Optional: Add a fade-in effect */
+.fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
+.certificate {
+    height: 80px;
+    background-color: rgb(220, 241, 250);
+    text-align: center;
+}
+
+#Certificate_written {
+    font-size: 50px;
+}
+
+.certi_boxes {
+    background-color: rgb(220, 241, 250);
+    padding: 20px; /* Add padding to avoid content touching edges */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the boxes horizontally */
+    gap: 30px; /* Increase the gap between boxes */
+    
+}
+
+.box1, .box2, .box3 {
+    width: 350px; /* Set a specific width for each box */
+    height: 350px; /* Set height equal to width to keep it square */
+    border-radius: 15px; /* Slightly smaller border radius */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents content from overflowing */
+    text-align: center;
+    padding: 10px; /* Added padding for better content spacing */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: 10px; /* Margin around each box for spacing */
+}
+
+.upperbox1, .upperbox2, .upperbox {
+    width: 100%;
+    height: 50%;
+    background-color: white;
+    border-top-left-radius: 15px; /* Matching border radius */
+    border-top-right-radius: 15px; /* Matching border radius */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Ensure the overlay is positioned correctly */
+}
+
+.lowerbox1, .lowerbox2, .lowerbox {
+    width: 100%;
+    height: 50%;
+    background-color: rgb(78, 219, 241);
+    border-bottom-left-radius: 15px; /* Matching border radius */
+    border-bottom-right-radius: 15px; /* Matching border radius */
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#fec, #ppgs {
+    height: auto; /* Adjust to fit within the box */
+    max-height: 50%; /* Ensure the image doesn't overflow */
+}
+
+#fec_text, #ppgs_text, #next_text, #ppgs_next_text, #text_final, #text_final_ppgs {
+    font-size: 18px; /* Increase font size for better readability */
+    margin: 0;
+}
+
+#text_final, #text_final_ppgs {
+    font-size: 16px; /* Increase font size for better readability */
+    margin-top: 8px;
+    color: rgb(8, 8, 129);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-top-left-radius: 15px; /* Matching border radius */
+    border-top-right-radius: 15px; /* Matching border radius */
+    font-size: 30px; /* Adjust font size of overlay text */
+    cursor: pointer; /* Change cursor to pointer */
+    border: 2px solid black;
+}
+
+.upperbox1:hover .overlay, .upperbox2:hover .overlay, .upperbox:hover .overlay {
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        gap: 20px; /* Adjust gap for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        gap: 15px; /* Adjust gap for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        gap: 10px; /* Adjust gap for smaller screens */
+    }
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Full viewport height */
+    background-color: rgb(220, 241, 250); /* Background color for visibility */
+}
+
+.centered-div {
+    background-color: white;
+    border: 2px solid rgb(8, 8, 129);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
