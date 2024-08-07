@@ -1052,7 +1052,6 @@ footer {
     transform: translateY(20px); /* Start with a slight vertical translation */
     transition: opacity 1s ease, transform 1s ease;
 }
-}
 
 .upperbox1, .upperbox2, .upperbox {
     width: 100%;
@@ -1116,13 +1115,13 @@ footer {
     border: 2px solid black;
 }
 
+.upperbox1:hover .overlay, .upperbox2:hover .overlay, .upperbox:hover .overlay {
+    opacity: 1;
+}
+
 .box1.visible, .box2.visible, .box3.visible {
     opacity: 1; /* End with opacity 1 */
     transform: scale(1); /* End with normal scale */
-}
-
-.upperbox1:hover .overlay, .upperbox2:hover .overlay, .upperbox:hover .overlay {
-    opacity: 1;
 }
 
 @media (max-width: 1024px) {
@@ -1160,3 +1159,4 @@ footer {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
 }
+
