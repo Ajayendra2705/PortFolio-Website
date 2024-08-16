@@ -41,3 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(box);
     });
 });
+
+function openImage(imageUrl) {
+  window.open(imageUrl, '_blank');
+}
